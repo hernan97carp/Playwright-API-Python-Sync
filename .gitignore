@@ -1,0 +1,6 @@
+images
+forpy.py
+variables.py
+.env
+__pycache__/
+*.pyc
