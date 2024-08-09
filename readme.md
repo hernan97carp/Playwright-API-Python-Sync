@@ -49,3 +49,16 @@ También puedes instalar todas las dependencias con:
 npm i
 ```
 
+
+### En tu archivo .env:
+Deberías tener las siguientes variables declaradas
+
+BEARER_KEY=
+
+BASE_URL=https://gorest.co.in
+
+URL_USERS=/public/v2/users/
+
+Para tener la BEARER KEY tienes que crearte una cuenta en https://gorest.co.in/consumer/login
+
+![Bearer Token](./Bearer.png)
