@@ -2,6 +2,7 @@ import json
 import string
 import random
 from playwright.sync_api import sync_playwright
+
 from dotenv import load_dotenv
 import os
 from faker import Faker
@@ -10,6 +11,7 @@ fake = Faker()
 load_dotenv()
 context = None
 global_id = None
+id_user = None
 bearer = os.getenv('BEARER_KEY')
 SUT = os.getenv('BASE_URL')
 urlUsers = os.getenv('URL_USERS')
@@ -58,6 +60,7 @@ def createNewUser():
  
     
     with open('tests/jsonFiles/CreateNewUser.json', "r") as read_file:
+       
         data = json.load(read_file)
         data["name"] = random_user_name
         data["email"] = random_user + "@gmail.com"
