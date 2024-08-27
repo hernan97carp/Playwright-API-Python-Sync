@@ -13,12 +13,16 @@ context = None
 global_id = None
 id_user = None
 bearer = os.getenv('BEARER_KEY')
+bearerDemoQA = os.getenv('BEARER_DEMOQA_KEY')
 SUT = os.getenv('BASE_URL')
 urlUsers = os.getenv('URL_USERS')
 
 def get_bearer_header():
     """Devuelve el encabezado de autorización Bearer."""
     return {"Authorization": f"Bearer {bearer}"}
+
+def get_bearer_header_demoqa():
+    return {"Authorization:" f"Bearer {bearerDemoQA}"}
 
 def get_random_user_id(response):
     users = response.json()
@@ -80,3 +84,12 @@ def verify_name_in_response(resJson, name):
 def urlPatch(urlUsers, global_id):
          url = f"{urlUsers}{str(global_id)}"
          return url     
+     
+def createNewUserDemoqa():
+    random_user = fake.user_name()
+    random_password = fake.password()
+    with open('tests/jsonFiles/NewUserDemoqa.json', "r") as read_file:
+        data = json.load(read_file)
+        data["userName"] = random_user
+        data["password"] = random_password
+    return data
